@@ -1,7 +1,7 @@
 # Rotate outer layer of any square matrix clockwise and anticlockwise in any degree.
 
 ## Examples:
-
+```
 Original Matrix:
 [['a', 'b'],
  ['d', 'c']]
@@ -33,3 +33,4 @@ Clockwise Rotated Matrix with Degree = 2:
  ['i', 'f', 'e', 'd'],
  ['h', 'g', 'f', 'e']]
 
+```
