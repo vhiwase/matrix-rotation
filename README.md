@@ -1,4 +1,4 @@
-# Rotate outer layer of any square matrix clockwise and anticlockwise in any degree.
+# Rotate any square matrix clockwise and anticlockwise in any degree.
 
 ## How to use
 ```
