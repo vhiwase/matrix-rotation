@@ -130,3 +130,8 @@ Anitclockwise Rotated Matrix with Degree = 4:
  ['23', '22', '21', '20', '19', '18', '17']]
 ---------------------------------------------
 ```
+# Image Rotation
+<p align="center">
+  <img src="images/Kills_skull_64x64.png" width="350" title="Kill Skull Image">
+  <img src="images/Kill_skull_64x64_red_channel.png" width="350" alt="accessibility text">
+</p>
