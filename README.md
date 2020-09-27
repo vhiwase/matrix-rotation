@@ -130,8 +130,8 @@ Anitclockwise Rotated Matrix with Degree = 4:
  ['23', '22', '21', '20', '19', '18', '17']]
 ---------------------------------------------
 ```
-# Application of Image Rotation
-Following are the sample application expamle of the matrix rotation.
+# Application on image
+Following are the sample application examples of the matrix rotation.
 2D red channel of the 3D colored image is use to demonstrate this application.
 Image is rotated clockwise and anticlockwise in 15 degree, 30 degree, 45 degree, 60 degree and 90 degree respectively.
 
