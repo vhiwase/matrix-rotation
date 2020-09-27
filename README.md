@@ -2,6 +2,8 @@
 
 ## How to use
 ```
+>>> from matrix_rotation import rotate_layers, matrix_rotation
+
 >>> matrix = [['a', 'b', 'c', 'd'],\
               ['l', 'm', 'n', 'e'],\
               ['k', 'p', 'o', 'f'],\
