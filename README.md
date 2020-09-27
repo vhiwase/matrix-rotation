@@ -3,8 +3,8 @@
 ## How to use
 ```
 >>> matrix = [['a', 'b', 'c'],\
-          ['h', 'i', 'd'],\
-          ['g', 'f', 'e']]
+              ['h', 'i', 'd'],\
+              ['g', 'f', 'e']]
 
 >>> rotated_matrix = rotate_outer_layer(matrix, degree=2, clockwise=True)
 
