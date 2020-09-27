@@ -1,22 +1,30 @@
-def rotate_outer_layer(matrix:list, degree:int, clockwise=True)-> list:
+def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
     """
     Generalize function to rotate any matrix's outer layer clockwise and anticlockwise'
 
     Parameters
     ----------
-    matrix : list[list]
-        Input matrix.
+    matrix : list
+        Input square matrix.
     degree : int
-        degree of rotation.
+        Degree of rotation.
     clockwise : TYPE, optional
-        DESCRIPTION. The default is True.
-        Not True will rotate anticlockwise
-
+        Direction of rotation. The default is True.
+        True for clockwise direction
+        False for anticlockwise direction
+        
     Returns
     -------
-    rotated_matrix : list[list]
-        .Rotated matrix
-
+    rotated_matrix : list
+        Rotated square matrix
+                
+    >>> matrix = [['a', 'b', 'c', 'd'],\
+                  ['l', 'i', 'd', 'e'],\
+                  ['k', 'f', 'e', 'f'],\
+                  ['j', 'i', 'h', 'g']]
+    >>> rotated_matrix = rotate_outer_layer(matrix=matrix, degree=1, clockwise=True)
+    >>> rotated_matrix
+    [['l', 'a', 'b', 'c'], ['k', 'i', 'd', 'd'], ['j', 'f', 'e', 'e'], ['i', 'h', 'g', 'f']]
     """
     
     # Getting matrix position of and its value 
@@ -26,7 +34,6 @@ def rotate_outer_layer(matrix:list, degree:int, clockwise=True)-> list:
             pos_dict[(row_index, col_index)] = col
     
     # Defining the length of first row, last row and middle rows
-    length_pos = max(range(len(matrix)))
     first = min(range(len(matrix)))
     last = max(range(len(matrix)))
     _, *middle, _ = list(range(len(matrix)))
@@ -74,12 +81,48 @@ def rotate_outer_layer(matrix:list, degree:int, clockwise=True)-> list:
                 continue                
     return rotated_matrix
 
-def pprint(matrix):
+
+def pprint(matrix:list)->str:
+    """
+    Preety print matrix string
+
+    Parameters
+    ----------
+    matrix : list
+        Square matrix.
+
+    Returns
+    -------
+    str
+        Preety string form of matrix.
+
+    """
     matrix_string = str(matrix)
     matrix_string = matrix_string.replace('],', '],\n')
     return matrix_string
 
-def printing(matrix, rotated_matrix, degree, clockwise):
+
+def printing(matrix:list, rotated_matrix:list, degree:int, clockwise:bool)->None:
+    """
+    Printing Original Matrix and Clockwise Rotated Matrix with the Degree.
+
+    Parameters
+    ----------
+    matrix : list
+        Original square matrix.
+    rotated_matrix : list
+        Rotated square matrix.
+    degree : int
+        Degree of rotation..
+    clockwise : bool
+        Direction of rotation. The default is True.
+        True for clockwise direction
+        False for anticlockwise direction
+    Returns
+    -------
+    None
+
+    """
     print("\nOriginal Matrix:\n{}\n".format(pprint(matrix)))
     if clockwise:
         rotation = 'Clockwise'
@@ -88,27 +131,73 @@ def printing(matrix, rotated_matrix, degree, clockwise):
     print("{} Rotated Matrix with Degree = {}:\n{}".format(rotation, degree, pprint(rotated_matrix)))
     print("-"*45)
 
+
+def matrix_rotation(matrix:list, degree:int=1, clockwise:bool=True)->list:
+    """
+    Generalize function to rotate any matrix's outer layer clockwise and anticlockwise 
+    and printing the original and rotated matrix.
+
+    Parameters
+    ----------
+    matrix : list
+        Input square matrix.
+    degree : int, optional
+        Degree of rotation. The default is 1.
+    clockwise : bool, optional
+        Direction of rotation. The default is True.
+        True for clockwise direction
+        False for anticlockwise direction
+
+    Returns
+    -------
+    rotated_matrix : list
+        Rotated square matrix.
+        
+    >>> matrix = [['a', 'b', 'c'],\
+                  ['h', 'i', 'd'],\
+                  ['g', 'f', 'e']]
+    
+    >>> rotated_matrix = rotate_outer_layer(matrix, degree=2, clockwise=True)
+    
+    >>> rotated_matrix 
+    [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
+    
+    >>> rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
+    <BLANKLINE>
+    Original Matrix:
+    [['a', 'b', 'c'],
+     ['h', 'i', 'd'],
+     ['g', 'f', 'e']]
+    <BLANKLINE>
+    Clockwise Rotated Matrix with Degree = 2:
+    [['g', 'h', 'a'],
+     ['f', 'i', 'b'],
+     ['e', 'd', 'c']]
+    ---------------------------------------------
+
+    >>> rotated_matrix
+    [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
+    """
+    rotated_matrix = rotate_outer_layer(matrix=matrix, degree=degree, clockwise=clockwise)
+    printing(matrix, rotated_matrix, degree=degree, clockwise=clockwise)
+    return rotated_matrix
+
+
 if __name__ == '__main__':
     matrix = [['a', 'b'],
-              ['d', 'c']]
-    
-    rotated_matrix = rotate_outer_layer(matrix=matrix, degree=1, clockwise=True)
-    printing(matrix, rotated_matrix, degree=1, clockwise=True)
+              ['d', 'c']]    
+    rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
 
     matrix = [['a', 'b', 'c'],
               ['h', 'i', 'd'],
               ['g', 'f', 'e']]
-
-    rotated_matrix = rotate_outer_layer(matrix=matrix, degree=1, clockwise=False)
-    printing(matrix, rotated_matrix, degree=1, clockwise=False)
+    rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=False)
     
     matrix = [['a', 'b', 'c', 'd'],
               ['l', 'i', 'd', 'e'],
               ['k', 'f', 'e', 'f'],
               ['j', 'i', 'h', 'g']]
-
-    rotated_matrix = rotate_outer_layer(matrix=matrix, degree=2, clockwise=True)
-    printing(matrix, rotated_matrix, degree=2, clockwise=True)
+    rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
 
 
 
