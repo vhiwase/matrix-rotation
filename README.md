@@ -9,7 +9,7 @@ Original Matrix:
 Clockwise Rotated Matrix with Degree = 1:
 [['d', 'a'],
  ['c', 'b']]
-
+---------------------------------------------
 
 Original Matrix:
 [['a', 'b', 'c'],
@@ -20,6 +20,7 @@ Anitclockwise Rotated Matrix with Degree = 1:
 [['b', 'c', 'd'],
  ['a', 'i', 'e'],
  ['h', 'g', 'f']]
+---------------------------------------------
 
 Original Matrix:
 [['a', 'b', 'c', 'd'],
@@ -32,5 +33,5 @@ Clockwise Rotated Matrix with Degree = 2:
  ['j', 'i', 'd', 'c'],
  ['i', 'f', 'e', 'd'],
  ['h', 'g', 'f', 'e']]
-
+---------------------------------------------
 ```
