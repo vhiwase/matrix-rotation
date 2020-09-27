@@ -130,7 +130,11 @@ Anitclockwise Rotated Matrix with Degree = 4:
  ['23', '22', '21', '20', '19', '18', '17']]
 ---------------------------------------------
 ```
-# Image Rotation
+# Application of Image Rotation
+Following are the sample application expamle of the matrix rotation.
+2D red channel of the 3D colored image is use to demonstrate this application.
+Image is rotated clockwise and anticlockwise in 15 degree, 30 degree, 45 degree, 60 degree and 90 degree respectively.
+
 <p align="center">
   <img src="images/Kills_skull_64x64.png" width="64" title="Kill Skull Image">
   <img src="images/Kill_skull_64x64_red_channel.png" width="64" alt="accessibility text">
