@@ -1,3 +1,7 @@
+import numpy as np
+import itertools
+
+
 def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
     """
     Generalize function to rotate any matrix's outer layer clockwise and anticlockwise'
@@ -69,9 +73,12 @@ def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
     rotated_matrix = []
     for inner_list in matrix:
         rotated_matrix.append(inner_list.copy())
+    else:
+        rotated_matrix = np.array(rotated_matrix)
     
-    
-    rotated_matrix = rotate(rotated_matrix = rotated_matrix, matrix_pos=orignal_matrix_pos, degree=1, clockwise=True, pos_dict=pos_dict, size = int((len(orignal_matrix_pos)+4)/4), all_matrix_pos = orignal_matrix_pos)
+    orignal_matrix_pos = np.array(orignal_matrix_pos)
+    all_matrix_pos = set([tuple(item) for item in list(orignal_matrix_pos)])
+    rotated_matrix = rotate(rotated_matrix = rotated_matrix, matrix_pos=orignal_matrix_pos, degree=degree, clockwise=clockwise, pos_dict=pos_dict, size = int((len(orignal_matrix_pos)+4)/4), all_matrix_pos = all_matrix_pos)
 
     
     
@@ -108,28 +115,35 @@ def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
 
 
 
-def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size,all_matrix_pos):
+def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size, all_matrix_pos):
     # creating matrix position for n degree rotation
     if clockwise:
-        rotated_matrix_pos = matrix_pos[degree:] + matrix_pos[:degree]
+        rotated_matrix_pos = list(matrix_pos[degree:]) + list(matrix_pos[:degree])
     else:
-        rotated_matrix_pos = matrix_pos[-degree:]+matrix_pos[:-degree]
+        rotated_matrix_pos = list(matrix_pos[-degree:]) + list(matrix_pos[:-degree])
     
     # creating rotated dictionary with positions and values
     rotated_pos_dict = {}
     for om_pos, rm_pos in zip(matrix_pos, rotated_matrix_pos):
-        rotated_pos_dict[rm_pos] = pos_dict[om_pos]
+        rotated_pos_dict[tuple(rm_pos)] = pos_dict[tuple(om_pos)]
     
     my_list = []
-    for row_index in range(len(rotated_matrix)):
-        for col_index in range(len(rotated_matrix[row_index])):
-            try:
-                rotated_matrix[row_index][col_index] = rotated_pos_dict[(row_index, col_index)]
-                all_matrix_pos.extend(list(rotated_pos_dict.keys()))
-            except KeyError:
-                if (row_index, col_index) not in all_matrix_pos:
-                    my_list.append((row_index, col_index))
-                continue    
+    
+    range_list = list(range(len(rotated_matrix)))
+    
+    index_range = list(itertools.product(range_list, range_list))
+    
+    for item in index_range:
+        row_index, col_index = item
+        try:
+            rotated_matrix[row_index][col_index] = rotated_pos_dict[(row_index, col_index)]
+            all_matrix_pos = list(all_matrix_pos)
+            all_matrix_pos.extend(list(rotated_pos_dict.keys()))
+            all_matrix_pos = set(all_matrix_pos)
+        except KeyError:
+            if (row_index, col_index) not in all_matrix_pos:
+                my_list.append((row_index, col_index))
+            continue    
             
     start = my_list and min(min(my_list))
     end = my_list and max(max(my_list))    
@@ -175,13 +189,6 @@ def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size,all_mat
         for r, c in zip(rows, columns):
             recursion_matrix_pos.append((r, c))
         return rotate(rotated_matrix, recursion_matrix_pos, degree, clockwise, pos_dict=pos_dict, size = int((len(recursion_matrix_pos)+4)/4), all_matrix_pos = all_matrix_pos)
-    
-
-
-
-
-
-
 
 
 def pprint(matrix:list)->str:
@@ -315,32 +322,59 @@ if __name__ == '__main__':
               ['18', '31', '36', '35', '26', '9'],
               ['17', '30', '29', '28', '27', '10'],
               ['16', '15', '14', '13', '12', '11']]
-    rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
+    rotated_matrix = matrix_rotation(matrix, degree=3, clockwise=True)
 
 
 
+    matrix = [['1', '2', '3', '4', '5', '6', '7'],
+              ['24', '25', '26', '27', '28', '29', '8'],
+              ['23', '40', '41', '42', '43', '30', '9'],
+              ['22', '39', '48', '49', '44', '31', '10'],
+              ['21', '38', '47', '46', '45', '32', '11'],
+              ['20', '37', '36', '35', '34', '33', '12'],
+              ['19', '18', '17', '16', '15', '14', '13']]
+    rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
 
-# import cv2
 
-# image = cv2.imread('/home/vaibhav/Documents/Vaibhav/GitHub/matrix_rotation/Kills_skull_64x64.png')
-
-# red_channel = image[:,:,2]
-
-# print(red_channel.shape)
-# matrix = red_channel.tolist()
-# rotated_matrix = matrix_rotation(matrix, degree=99, clockwise=True)
-
-# cv2.imwrite('Kill_skull_64x64_red_channel.png', red_channel)
 
 # import numpy as np
-# cv2.imwrite('Kill_skull_64x64_rotated.png', np.array(rotated_matrix))
+
+# import random
+# n = 64
+# matrix = []
+# for _ in range(n):
+#     arr = [random.randint(1,100) for i in range(n)]
+#     matrix.append(arr)
+# else:
+#     np.array(matrix)
 
 
-# matrix = [['a', 'b', 'c', 'd'],
-#           ['l', 'i', 'd', 'e'],
-#           ['k', 'f', 'e', 'f'],
-#           ['j', 'i', 'h', 'g']]
-# rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
+# rotated_matrix = matrix_rotation(np.array(matrix), degree=1, clockwise=True)
+
+
+import cv2
+
+image = cv2.imread('/home/vaibhav/Documents/Vaibhav/GitHub/matrix_rotation/Kills_skull_64x64.png')
+
+red_channel = image[:,:,2]
+
+print(red_channel.shape)
+matrix = red_channel.tolist()
+rotated_matrix = matrix_rotation(matrix, degree=90, clockwise=True)
+
+rotated_matrix = matrix_rotation(rotated_matrix, degree=90, clockwise=False)
+
+cv2.imwrite('Kill_skull_64x64_red_channel.png', red_channel)
+
+import numpy as np
+cv2.imwrite('Kill_skull_64x64_rotated.png', np.array(rotated_matrix))
+
+
+matrix = [['a', 'b', 'c', 'd'],
+          ['l', 'i', 'd', 'e'],
+          ['k', 'f', 'e', 'f'],
+          ['j', 'i', 'h', 'g']]
+rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
 
 
 
