@@ -1,8 +1,6 @@
-import numpy as np
 import itertools
 
-
-def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
+def rotate_layers(matrix:list, degree:int, clockwise:bool=True)-> list:
     """
     Generalize function to rotate any matrix's outer layer clockwise and anticlockwise'
 
@@ -26,9 +24,11 @@ def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
                   ['l', 'm', 'n', 'e'],\
                   ['k', 'p', 'o', 'f'],\
                   ['j', 'i', 'h', 'g']]
-    >>> rotated_matrix = rotate_outer_layer(matrix=matrix, degree=1, clockwise=True)
+        
+    >>> rotated_matrix = rotate_layers(matrix=matrix, degree=1, clockwise=True)
+    
     >>> rotated_matrix
-    [['l', 'a', 'b', 'c'], ['k', 'i', 'd', 'd'], ['j', 'f', 'e', 'e'], ['i', 'h', 'g', 'f']]
+    [['l', 'a', 'b', 'c'], ['k', 'p', 'm', 'd'], ['j', 'o', 'n', 'e'], ['i', 'h', 'g', 'f']]
     """
     
     # Getting matrix position of and its value 
@@ -46,7 +46,6 @@ def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
         _, *middle, _ = list(range(len(matrix)))
     else:
         middle = None
-
     
     # Creating pattern for first rows
     pattern = []
@@ -73,49 +72,43 @@ def rotate_outer_layer(matrix:list, degree:int, clockwise:bool=True)-> list:
     rotated_matrix = []
     for inner_list in matrix:
         rotated_matrix.append(inner_list.copy())
-    else:
-        rotated_matrix = np.array(rotated_matrix)
     
-    orignal_matrix_pos = np.array(orignal_matrix_pos)
     all_matrix_pos = set([tuple(item) for item in list(orignal_matrix_pos)])
     rotated_matrix = rotate(rotated_matrix = rotated_matrix, matrix_pos=orignal_matrix_pos, degree=degree, clockwise=clockwise, pos_dict=pos_dict, size = int((len(orignal_matrix_pos)+4)/4), all_matrix_pos = all_matrix_pos)
-
-    
-    
-    ## creating matrix position for n degree rotation
-    # if clockwise:
-    #     rotated_matrix_pos = orignal_matrix_pos[degree:] + orignal_matrix_pos[:degree]
-    # else:
-    #     rotated_matrix_pos = orignal_matrix_pos[-degree:]+orignal_matrix_pos[:-degree]
-    
-    # # creating rotated dictionary with positions and values
-    # rotated_pos_dict = {}
-    # for om_pos, rm_pos in zip(orignal_matrix_pos, rotated_matrix_pos):
-    #     rotated_pos_dict[rm_pos] = pos_dict[om_pos]
-    
-    # # creating rotated matrix
-    # rotated_matrix = []
-    # for inner_list in matrix:
-    #     rotated_matrix.append(inner_list.copy())
-       
-        
-    # for row_index in range(len(rotated_matrix)):
-    #     for col_index in range(len(rotated_matrix[row_index])):
-    #         try:
-    #             rotated_matrix[row_index][col_index] = rotated_pos_dict[(row_index, col_index)]
-    #         except KeyError:
-    #             print(row_index, col_index)
-    #             continue    
-
-
-
-
-            
     return rotated_matrix
 
 
+def rotate(rotated_matrix:list, matrix_pos:list, degree:int, clockwise:bool, pos_dict:dict, size:int, all_matrix_pos:set)-> list:
+    """
+    Recursive rotation of array pixel in clockwise and anticlockwise direction 
+    with a degree of rotation ranging from 0 to 360.
+    This rotation starts from outer layer towards inner layer.
 
-def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size, all_matrix_pos):
+    Parameters
+    ----------
+    rotated_matrix : list
+        Input square matrix.
+    matrix_pos : list
+        (row, column) index position for rotation.
+    degree : int
+        Degree of rotation.
+    clockwise : bool
+        Direction of rotation. The default is True.
+        True for clockwise direction
+        False for anticlockwise direction.
+    pos_dict : dict
+        Dictionary of index position and its value.
+    size : int
+        Size of square matrix to rotate.
+    all_matrix_pos : set
+        Set of appeared index postions in a recursive calling.
+
+    Returns
+    -------
+    list
+        Rotated matrix with one layer of rotation at a time.
+
+    """
     # creating matrix position for n degree rotation
     if clockwise:
         rotated_matrix_pos = list(matrix_pos[degree:]) + list(matrix_pos[:degree])
@@ -128,9 +121,7 @@ def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size, all_ma
         rotated_pos_dict[tuple(rm_pos)] = pos_dict[tuple(om_pos)]
     
     my_list = []
-    
-    range_list = list(range(len(rotated_matrix)))
-    
+    range_list = list(range(len(rotated_matrix)))    
     index_range = list(itertools.product(range_list, range_list))
     
     for item in index_range:
@@ -147,8 +138,7 @@ def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size, all_ma
             
     start = my_list and min(min(my_list))
     end = my_list and max(max(my_list))    
-    
-    
+
     if len(matrix_pos) < 5:
         return rotated_matrix
     elif start == end:
@@ -160,9 +150,7 @@ def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size, all_ma
         if len(list(range(start, end+1)))>=3:
             _, *middle, _ = list(range(start, end+1))
         else:
-            middle = None
-
-    
+            middle = None    
         size = size - 2
     
         # Creating pattern for first rows
@@ -178,7 +166,6 @@ def rotate(rotated_matrix, matrix_pos, degree, clockwise, pos_dict, size, all_ma
         if middle is not None:  
             for m in middle[::-1]:
                 pattern.extend([m])
-        
         
         rows  = pattern
         # creating pattern for columns
@@ -266,11 +253,11 @@ def matrix_rotation(matrix:list, degree:int=1, clockwise:bool=True)->list:
                   ['h', 'i', 'd'],\
                   ['g', 'f', 'e']]
     
-    >>> rotated_matrix = rotate_outer_layer(matrix, degree=2, clockwise=True)
+    >>> rotated_matrix = rotate_layers(matrix, degree=2, clockwise=True)
     
     >>> rotated_matrix 
     [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
-    
+
     >>> rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
     <BLANKLINE>
     Original Matrix:
@@ -287,7 +274,7 @@ def matrix_rotation(matrix:list, degree:int=1, clockwise:bool=True)->list:
     >>> rotated_matrix
     [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
     """
-    rotated_matrix = rotate_outer_layer(matrix=matrix, degree=degree, clockwise=clockwise)
+    rotated_matrix = rotate_layers(matrix=matrix, degree=degree, clockwise=clockwise)
     printing(matrix, rotated_matrix, degree=degree, clockwise=clockwise)
     return rotated_matrix
 
@@ -333,11 +320,10 @@ if __name__ == '__main__':
               ['21', '38', '47', '46', '45', '32', '11'],
               ['20', '37', '36', '35', '34', '33', '12'],
               ['19', '18', '17', '16', '15', '14', '13']]
-    rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
+    rotated_matrix = matrix_rotation(matrix, degree=4, clockwise=False)
 
 
 
-# import numpy as np
 
 # import random
 # n = 64
@@ -345,37 +331,11 @@ if __name__ == '__main__':
 # for _ in range(n):
 #     arr = [random.randint(1,100) for i in range(n)]
 #     matrix.append(arr)
-# else:
-#     np.array(matrix)
 
-
-# rotated_matrix = matrix_rotation(np.array(matrix), degree=1, clockwise=True)
-
-
-import cv2
-
-image = cv2.imread('/home/vaibhav/Documents/Vaibhav/GitHub/matrix_rotation/Kills_skull_64x64.png')
-
-red_channel = image[:,:,2]
-
-print(red_channel.shape)
-matrix = red_channel.tolist()
-rotated_matrix = matrix_rotation(matrix, degree=90, clockwise=True)
-
-rotated_matrix = matrix_rotation(rotated_matrix, degree=90, clockwise=False)
-
-cv2.imwrite('Kill_skull_64x64_red_channel.png', red_channel)
-
-import numpy as np
-cv2.imwrite('Kill_skull_64x64_rotated.png', np.array(rotated_matrix))
-
-
-matrix = [['a', 'b', 'c', 'd'],
-          ['l', 'i', 'd', 'e'],
-          ['k', 'f', 'e', 'f'],
-          ['j', 'i', 'h', 'g']]
-rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
-
-
+# import time
+# tic = time.time()
+# rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
+# toc = time.time()
+# print("Time required is {}".format(toc-tic))
 
 
