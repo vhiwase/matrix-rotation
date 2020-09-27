@@ -3,7 +3,7 @@
 ## Examples:
 
 Original Matrix:
-[['a', 'b'],\n
+[['a', 'b'],
  ['d', 'c']]
 
 Clockwise Rotated Matrix with Degree = 1:
