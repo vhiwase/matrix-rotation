@@ -132,6 +132,16 @@ Anitclockwise Rotated Matrix with Degree = 4:
 ```
 # Image Rotation
 <p align="center">
-  <img src="images/Kills_skull_64x64.png" width="350" title="Kill Skull Image">
-  <img src="images/Kill_skull_64x64_red_channel.png" width="350" alt="accessibility text">
+  <img src="images/Kills_skull_64x64.png" width="64" title="Kill Skull Image">
+  <img src="images/Kill_skull_64x64_red_channel.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_15_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_30_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_45_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_60_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_90_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_15_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_30_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_45_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_60_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="images/Kill_skull_64x64_red_channel_rotated_90_degree_anticlockwise.png" width="64" alt="accessibility text">
 </p>
