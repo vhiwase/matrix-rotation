@@ -1,6 +1,6 @@
 # Rotate outer layer of any square matrix clockwise and anticlockwise in any degree.
 
-# How to use
+## How to use
 ```
 >>> matrix = [['a', 'b', 'c'],\
           ['h', 'i', 'd'],\
@@ -28,13 +28,13 @@ Clockwise Rotated Matrix with Degree = 2:
 [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 ```
 
-## Examples:
-# Calling:
+# Examples:
+## Calling:
 ```
 python3 -m doctest matrix_rotation.py
 python3 matrix_rotation.py 
 ```
-# Output
+## Output
 ```
 Original Matrix:
 [['a', 'b'],
