@@ -151,3 +151,8 @@ Image is rotated clockwise and anticlockwise in 15 degree, 30 degree, 45 degree,
   <img src="images/Kill_skull_64x64_red_channel_rotated_60_degree_anticlockwise.png" width="64" alt="accessibility text">
   <img src="images/Kill_skull_64x64_red_channel_rotated_90_degree_anticlockwise.png" width="64" alt="accessibility text">
 </p>
+
+# Licence
+MIT License
+
+Note: If you find this project useful, please include reference link in your work.
