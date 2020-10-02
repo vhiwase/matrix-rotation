@@ -2,14 +2,14 @@
 
 ## How to use
 ```
->>> from matrix_rotation import rotate_layers, matrix_rotation
+>>> from matrix_rotation import rotate_matrix, print_rotate_matrix
 
 >>> matrix = [['a', 'b', 'c', 'd'],\
               ['l', 'm', 'n', 'e'],\
               ['k', 'p', 'o', 'f'],\
               ['j', 'i', 'h', 'g']]
 
->>> rotated_matrix = rotate_layers(matrix=matrix, degree=1, clockwise=True)
+>>> rotated_matrix = rotate_matrix(matrix=matrix, degree=1, clockwise=True)
 
 >>> rotated_matrix
 [['l', 'a', 'b', 'c'], ['k', 'p', 'm', 'd'], ['j', 'o', 'n', 'e'], ['i', 'h', 'g', 'f']]
@@ -18,12 +18,12 @@
               ['h', 'i', 'd'],\
               ['g', 'f', 'e']]
     
->>> rotated_matrix = rotate_layers(matrix, degree=2, clockwise=True)
+>>> rotated_matrix = rotate_matrix(matrix, degree=2, clockwise=True)
 
 >>> rotated_matrix 
 [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 
->>> rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
+>>> rotated_matrix = print_rotate_matrix(matrix, degree=2, clockwise=True)
 <BLANKLINE>
 Original Matrix:
 [['a', 'b', 'c'],
@@ -41,20 +41,56 @@ Clockwise Rotated Matrix with Degree = 2:
 ```
 
 # Examples:
-## Calling:
+
+## Calling from Command Line Interface (CLI)
 ```
-python3 -m doctest matrix_rotation.py
-python3 matrix_rotation.py 
+python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]"
+
+python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 
+
+python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False
+
+python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False --print_matrix True
+
 ```
+
+## Calling for doctest:
+```
+python3 -m doctest matrix_rotation/matrix_rotation.py
+```
+
+## Calling for unittest
+```
+python3 -m unittest -v tests/test_matrix_rotation.py
+```
+
+## Calling for Sample examples
+```
+python3 matrix_rotation/matrix_rotation_cli.py
+"""
+Type "None" to display default examples.
+Enter your matrix: (Type `None`)
+"""
+```
+
 ## Output
 ```
 Original Matrix:
 [['a', 'b'],
- ['d', 'c']]
+['d', 'c']]
 
 Clockwise Rotated Matrix with Degree = 1:
 [['d', 'a'],
  ['c', 'b']]
+---------------------------------------------
+
+Original Matrix:
+[['a', 'b'],
+ ['d', 'c']]
+
+Anitclockwise Rotated Matrix with Degree = 1:
+[['b', 'c'],
+ ['a', 'd']]
 ---------------------------------------------
 
 Original Matrix:
@@ -131,6 +167,7 @@ Anitclockwise Rotated Matrix with Degree = 4:
  ['24', '25', '40', '39', '38', '37', '16'],
  ['23', '22', '21', '20', '19', '18', '17']]
 ---------------------------------------------
+
 ```
 # Application on image
 Following are the sample application examples of the matrix rotation.

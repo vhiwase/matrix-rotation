@@ -1,8 +1,8 @@
 import itertools
 
-__all__ = ["rotate_layers", "matrix_rotation", "pprint", "printing"]
+__all__ = ["rotate_matrix", "print_rotate_matrix", "pprint", "printing"]
 
-def rotate_layers(matrix:list, degree:int, clockwise:bool=True)-> list:
+def rotate_matrix(matrix:list, degree:int, clockwise:bool=True)-> list:
     """
     Generalize function to rotate any matrix's outer layer clockwise and anticlockwise'
 
@@ -27,7 +27,7 @@ def rotate_layers(matrix:list, degree:int, clockwise:bool=True)-> list:
                   ['k', 'p', 'o', 'f'],\
                   ['j', 'i', 'h', 'g']]
         
-    >>> rotated_matrix = rotate_layers(matrix=matrix, degree=1, clockwise=True)
+    >>> rotated_matrix = rotate_matrix(matrix=matrix, degree=1, clockwise=True)
     
     >>> rotated_matrix
     [['l', 'a', 'b', 'c'], ['k', 'p', 'm', 'd'], ['j', 'o', 'n', 'e'], ['i', 'h', 'g', 'f']]
@@ -76,11 +76,11 @@ def rotate_layers(matrix:list, degree:int, clockwise:bool=True)-> list:
         rotated_matrix.append(inner_list.copy())
     
     all_matrix_pos = set([tuple(item) for item in list(orignal_matrix_pos)])
-    rotated_matrix = rotate(rotated_matrix = rotated_matrix, matrix_pos=orignal_matrix_pos, degree=degree, clockwise=clockwise, pos_dict=pos_dict, size = int((len(orignal_matrix_pos)+4)/4), all_matrix_pos = all_matrix_pos)
+    rotated_matrix = _rotate(rotated_matrix = rotated_matrix, matrix_pos=orignal_matrix_pos, degree=degree, clockwise=clockwise, pos_dict=pos_dict, size = int((len(orignal_matrix_pos)+4)/4), all_matrix_pos = all_matrix_pos)
     return rotated_matrix
 
 
-def rotate(rotated_matrix:list, matrix_pos:list, degree:int, clockwise:bool, pos_dict:dict, size:int, all_matrix_pos:set)-> list:
+def _rotate(rotated_matrix:list, matrix_pos:list, degree:int, clockwise:bool, pos_dict:dict, size:int, all_matrix_pos:set)-> list:
     """
     Recursive rotation of array pixel in clockwise and anticlockwise direction 
     with a degree of rotation ranging from 0 to 360.
@@ -177,7 +177,7 @@ def rotate(rotated_matrix:list, matrix_pos:list, degree:int, clockwise:bool, pos
         recursion_matrix_pos = []
         for r, c in zip(rows, columns):
             recursion_matrix_pos.append((r, c))
-        return rotate(rotated_matrix, recursion_matrix_pos, degree, clockwise, pos_dict=pos_dict, size = int((len(recursion_matrix_pos)+4)/4), all_matrix_pos = all_matrix_pos)
+        return _rotate(rotated_matrix, recursion_matrix_pos, degree, clockwise, pos_dict=pos_dict, size = int((len(recursion_matrix_pos)+4)/4), all_matrix_pos = all_matrix_pos)
 
 
 def pprint(matrix:list)->str:
@@ -230,7 +230,7 @@ def printing(matrix:list, rotated_matrix:list, degree:int, clockwise:bool)->None
     print("-"*45)
 
 
-def matrix_rotation(matrix:list, degree:int=1, clockwise:bool=True)->list:
+def print_rotate_matrix(matrix:list, degree:int=1, clockwise:bool=True)->list:
     """
     Generalize function to rotate any matrix's outer layer clockwise and anticlockwise 
     and printing the original and rotated matrix.
@@ -255,12 +255,12 @@ def matrix_rotation(matrix:list, degree:int=1, clockwise:bool=True)->list:
                   ['h', 'i', 'd'],\
                   ['g', 'f', 'e']]
     
-    >>> rotated_matrix = rotate_layers(matrix, degree=2, clockwise=True)
+    >>> rotated_matrix = rotate_matrix(matrix, degree=2, clockwise=True)
     
     >>> rotated_matrix 
     [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 
-    >>> rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
+    >>> rotated_matrix = print_rotate_matrix(matrix, degree=2, clockwise=True)
     <BLANKLINE>
     Original Matrix:
     [['a', 'b', 'c'],
@@ -276,68 +276,23 @@ def matrix_rotation(matrix:list, degree:int=1, clockwise:bool=True)->list:
     >>> rotated_matrix
     [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
     """
-    rotated_matrix = rotate_layers(matrix=matrix, degree=degree, clockwise=clockwise)
+    rotated_matrix = rotate_matrix(matrix=matrix, degree=degree, clockwise=clockwise)
     printing(matrix, rotated_matrix, degree=degree, clockwise=clockwise)
     return rotated_matrix
 
-
-if __name__ == '__main__':
-    matrix = [['a', 'b'],
-              ['d', 'c']]    
-    rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
-
-    matrix = [['a', 'b', 'c'],
-              ['h', 'i', 'd'],
-              ['g', 'f', 'e']]
-    rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=False)
+if __name__ == "__main__":
+    import random
+    import time
     
-    matrix = [['a', 'b', 'c', 'd'],
-              ['l', 'm', 'n', 'e'],
-              ['k', 'p', 'o', 'f'],
-              ['j', 'i', 'h', 'g']]
-    rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
-
-    matrix = [['a', 'b', 'c', 'd', 'e'],
-              ['p', 'q', 'r', 's', 'f'],
-              ['o', 'x', 'y', 't', 'g'],
-              ['n', 'w', 'v', 'u', 'h'],
-              ['m', 'l', 'k', 'j', 'i']]
-    rotated_matrix = matrix_rotation(matrix, degree=2, clockwise=True)
-
-
-    matrix = [['1', '2', '3', '4', '5', '6'],
-              ['20', '21', '22', '23', '24', '7'],
-              ['19', '32', '33', '34', '25', '8'],
-              ['18', '31', '36', '35', '26', '9'],
-              ['17', '30', '29', '28', '27', '10'],
-              ['16', '15', '14', '13', '12', '11']]
-    rotated_matrix = matrix_rotation(matrix, degree=3, clockwise=True)
-
-
-
-    matrix = [['1', '2', '3', '4', '5', '6', '7'],
-              ['24', '25', '26', '27', '28', '29', '8'],
-              ['23', '40', '41', '42', '43', '30', '9'],
-              ['22', '39', '48', '49', '44', '31', '10'],
-              ['21', '38', '47', '46', '45', '32', '11'],
-              ['20', '37', '36', '35', '34', '33', '12'],
-              ['19', '18', '17', '16', '15', '14', '13']]
-    rotated_matrix = matrix_rotation(matrix, degree=4, clockwise=False)
-
-
-
-
-# import random
-# n = 64
-# matrix = []
-# for _ in range(n):
-#     arr = [random.randint(1,100) for i in range(n)]
-#     matrix.append(arr)
-
-# import time
-# tic = time.time()
-# rotated_matrix = matrix_rotation(matrix, degree=1, clockwise=True)
-# toc = time.time()
-# print("Time required is {}".format(toc-tic))
+    n = 64
+    matrix = []
+    for _ in range(n):
+        arr = [random.randint(1,100) for i in range(n)]
+        matrix.append(arr)
+        
+    tic = time.time()
+    rotated_matrix = rotate_matrix(matrix, degree=1, clockwise=True)
+    toc = time.time()
+    print("Time required to rotate 64x64 matrix is {} sec".format(toc-tic))
 
 
