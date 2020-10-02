@@ -1,2 +1,1 @@
-from matrix_rotation import rotate_layers, rotate_matrix, pprint, printing
-from tests import Test_matrix_rotation
+from matrix_rotation import rotate_matrix, print_rotate_matrix, pprint, printing
