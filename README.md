@@ -64,7 +64,7 @@ python3 -m doctest matrix_rotation/matrix_rotation.py
 python3 -m unittest -v tests/test_matrix_rotation.py
 ```
 
-### Calling for Sample examples
+### Calling for sample examples
 ```
 python3 matrix_rotation/matrix_rotation_cli.py
 """
