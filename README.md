@@ -4,16 +4,6 @@
 ```
 >>> from matrix_rotation import rotate_matrix, print_rotate_matrix
 
->>> matrix = [['a', 'b', 'c', 'd'],\
-              ['l', 'm', 'n', 'e'],\
-              ['k', 'p', 'o', 'f'],\
-              ['j', 'i', 'h', 'g']]
-
->>> rotated_matrix = rotate_matrix(matrix=matrix, degree=1, clockwise=True)
-
->>> rotated_matrix
-[['l', 'a', 'b', 'c'], ['k', 'p', 'm', 'd'], ['j', 'o', 'n', 'e'], ['i', 'h', 'g', 'f']]
-
 >>> matrix = [['a', 'b', 'c'],\
               ['h', 'i', 'd'],\
               ['g', 'f', 'e']]
