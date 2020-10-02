@@ -42,7 +42,7 @@ Clockwise Rotated Matrix with Degree = 2:
 
 # Examples:
 
-## Calling from Command Line Interface (CLI)
+### Calling from Command Line Interface (CLI)
 ```
 python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]"
 
@@ -54,26 +54,26 @@ python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]
 
 ```
 
-## Calling for doctest:
+### Calling for doctest:
 ```
 python3 -m doctest matrix_rotation/matrix_rotation.py
 ```
 
-## Calling for unittest
+### Calling for unittest
 ```
 python3 -m unittest -v tests/test_matrix_rotation.py
 ```
 
-## Calling for Sample examples
+### Calling for Sample examples
 ```
 python3 matrix_rotation/matrix_rotation_cli.py
 """
 Type "None" to display default examples.
-Enter your matrix: (Type `None`)
+Enter your matrix: <None>
 """
 ```
 
-## Output
+### Output of sample examples
 ```
 Original Matrix:
 [['a', 'b'],
@@ -175,18 +175,18 @@ Following are the sample application examples of the matrix rotation.
 Image is rotated clockwise and anticlockwise in 15 degree, 30 degree, 45 degree, 60 degree and 90 degree respectively.
 
 <p align="center">
-  <img src="images/Kills_skull_64x64.png" width="64" title="Kill Skull Image">
-  <img src="images/Kill_skull_64x64_red_channel.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_15_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_30_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_45_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_60_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_90_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_15_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_30_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_45_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_60_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="images/Kill_skull_64x64_red_channel_rotated_90_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kills_skull_64x64.png" width="64" title="Kill Skull Image">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_15_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_30_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_45_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_60_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_90_degree_clockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_15_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_30_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_45_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_60_degree_anticlockwise.png" width="64" alt="accessibility text">
+  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_90_degree_anticlockwise.png" width="64" alt="accessibility text">
 </p>
 
 # Licence
