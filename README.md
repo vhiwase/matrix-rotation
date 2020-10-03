@@ -64,15 +64,24 @@ python3 -m pytest
 ```
 
 ### Calling for sample examples
+To run sample examples, use the follwing command to run from command line interface:
 ```
 python3 matrix_rotation/matrix_rotation_cli.py
-"""
-Type "None" to display default examples.
-Enter your matrix: <None>
-"""
 ```
 
-### Output of sample examples
+This command will prompt a message in the console. If you want to run sample examples just type ```None``` in the console.
+```
+Type "None" to display default examples.
+Enter your matrix: <None>
+```
+
+Use the follwing command to run sample exmaples it in the module:
+```
+>>> from matrix_rotation import examples
+>>> examples()
+```
+
+### Output of above sample examples
 ```
 Original Matrix:
 [['a', 'b'],
