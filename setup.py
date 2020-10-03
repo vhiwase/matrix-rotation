@@ -3,7 +3,7 @@
 
 from setuptools import setup
 
-with open('README.md') as readme_file:
+with open('README.rst') as readme_file:
     readme = readme_file.read()
 
 requirements = [
@@ -20,9 +20,10 @@ test_requirements = [
 
 setup(
     name='matrix_rotation',
-    version='0.1',
+    version='0.2',
     description="Rotate any square matrix clockwise and anticlockwise in any degree.",
     long_description=readme,
+    long_description_content_type='text/markdown',
     author="Vaibhav Hiwase",
     author_email='hiwase.vaibhav@gmail.com',
     url='https://github.com/vhiwase/matrix-rotation',
@@ -41,7 +42,7 @@ setup(
     zip_safe=False,
     keywords='matrix_rotation',
     classifiers=[
-        'Development Status :: 0.2 - Beta',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',

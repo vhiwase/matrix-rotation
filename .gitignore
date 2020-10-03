@@ -1,3 +1,7 @@
 __pycache__
 *.pyc
 .tox
+token
+build/
+dist/
+matrix_rotation.egg-info/
