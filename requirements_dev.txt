@@ -1,7 +1,7 @@
-pip
-bumpversion
+pip>=20.1.1
+bumpversion>=0.6.0
+click>=7.1.2
+flake8>=3.8.4
+numpy>=1.19.2
+tox>=3.20.0
 wheel
-flake8
-tox
-click
-numpy

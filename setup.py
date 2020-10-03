@@ -7,15 +7,15 @@ with open('README.md') as readme_file:
     readme = readme_file.read()
 
 requirements = [
-    'opencv-python',
-    'numpy',
-    'pathlib',
-    'click'
+    'opencv-python>=4.4.0.44',
+    'numpy>=1.19.2',
+    'pathlib>=1.0.1',
+    'click>=7.1.2'
 ]
 
 test_requirements = [
-    'tox',
-    'flake8'
+    'tox>=3.20.0',
+    'flake8>=3.8.4'
 ]
 
 setup(
@@ -45,12 +45,9 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
+    python_requires='>=3.5',
     test_suite='tests',
     tests_require=test_requirements
 )

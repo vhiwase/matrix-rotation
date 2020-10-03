@@ -1,4 +1,4 @@
-opencv-python
-numpy
-pathlib
-click
+click>=7.1.2
+numpy>=1.19.2
+opencv-python>=4.4.0.44
+pathlib>=1.0.1
