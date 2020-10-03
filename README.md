@@ -53,6 +53,7 @@ python3 -m doctest matrix_rotation/matrix_rotation.py
 ```
 python3 -m unittest -v tests/test_matrix_rotation.py
 python3 -m pytest tests/
+python3 -m unittest discover
 ```
 
 ### Calling for sample examples
