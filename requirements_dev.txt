@@ -1,0 +1,7 @@
+pip
+bumpversion
+wheel
+flake8
+tox
+click
+numpy

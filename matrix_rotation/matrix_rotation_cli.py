@@ -59,7 +59,7 @@ def examples():
 
 
 @click.command()
-@click.option('--matrix', '-M',  prompt='Type "None" to display default \
+@click.option('--matrix', '-M', prompt='Type "None" to display default \
 examples.\nEnter your matrix', help='Use to show default examples of matrix \
 rotation. Otherwise use the input matrix from command line.\nInput \
 example : [["a", "b"],["d", "c"]]')

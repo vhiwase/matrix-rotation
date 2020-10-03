@@ -8,7 +8,6 @@ Tests for `matrix_rotation` module.
 """
 
 import unittest
-import numpy as np
 from click.testing import CliRunner
 from matrix_rotation import rotate_matrix, matrix_rotation_cli
 
@@ -16,6 +15,13 @@ __all__ = ['Test_matrix_rotation']
 
 
 class Test_matrix_rotation(unittest.TestCase):
+
+    def array_shape(self, matrix):
+        matrix_length = len(matrix)
+        for list_num, each_list in enumerate(matrix):
+            assert matrix_length == len(each_list)
+        else:
+            return (matrix_length, len(each_list))
 
     def setUp(self):
         self.matrix = [['1', '2', '3', '4', '5', '6', '7'],
@@ -117,8 +123,8 @@ class Test_matrix_rotation(unittest.TestCase):
     def test_rotate_matrix_shape_degree_1_clockwise(self):
         rotated_matrix = rotate_matrix(
             matrix=self.matrix, degree=1, clockwise=True)
-        self.assertEqual(np.array(rotated_matrix).shape,
-                         np.array(self.matrix).shape)
+        self.assertEqual(self.array_shape(rotated_matrix),
+                         self.array_shape(self.matrix))
 
     def test_rotate_matrix_degree_1_clockwise(self):
         rotated_matrix = rotate_matrix(
@@ -135,8 +141,8 @@ class Test_matrix_rotation(unittest.TestCase):
     def test_rotate_matrix_shape_degree_1_anticlockwise(self):
         rotated_matrix = rotate_matrix(
             matrix=self.matrix, degree=1, clockwise=False)
-        self.assertEqual(np.array(rotated_matrix).shape,
-                         np.array(self.matrix).shape)
+        self.assertEqual(self.array_shape(rotated_matrix),
+                         self.array_shape(self.matrix))
 
     def test_rotate_matrix_degree_1_anticlockwise(self):
         rotated_matrix = rotate_matrix(
@@ -154,8 +160,8 @@ class Test_matrix_rotation(unittest.TestCase):
         for degree in self.degrees:
             rotated_matrix = rotate_matrix(
                 matrix=self.matrix, degree=degree, clockwise=True)
-            self.assertEqual(np.array(rotated_matrix).shape,
-                             np.array(self.matrix).shape)
+            self.assertEqual(self.array_shape(rotated_matrix),
+                             self.array_shape(self.matrix))
 
     def test_rotate_matrix_any_degree_clockwise(self):
         for degree in self.degrees:
@@ -169,8 +175,8 @@ class Test_matrix_rotation(unittest.TestCase):
         for degree in self.degrees:
             rotated_matrix = rotate_matrix(
                 matrix=self.matrix, degree=degree, clockwise=False)
-            self.assertEqual(np.array(rotated_matrix).shape,
-                             np.array(self.matrix).shape)
+            self.assertEqual(self.array_shape(rotated_matrix),
+                             self.array_shape(self.matrix))
 
     def test_rotate_matrix_any_degree_anticlockwise(self):
         for degree in self.degrees:

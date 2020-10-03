@@ -9,7 +9,8 @@ with open('README.md') as readme_file:
 requirements = [
     'opencv-python',
     'numpy',
-    'pathlib'
+    'pathlib',
+    'click'
 ]
 
 test_requirements = [
