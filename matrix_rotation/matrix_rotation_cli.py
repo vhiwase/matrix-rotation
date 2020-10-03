@@ -2,7 +2,7 @@ import numpy as np
 from matrix_rotation import rotate_matrix, print_rotate_matrix
 import click
 
-__all__ = ["rotate_matrix", "print_rotate_matrix"]
+__all__ = ["main", "examples"]
 
 
 def examples():
@@ -77,16 +77,16 @@ def main(matrix=None, degree=1, clockwise=True, print_matrix=False):
         shape = np.array(matrix).shape
     except (SyntaxError, TypeError, NameError):
         matrix = None
-        click.echo("Please Enter a Valid list for matrix")
-        return "Please Enter a Valid list for matrix"
+        click.echo("Please Enter a Valid list for matrix\n")
+        return main()
 
     try:
         if matrix and shape[0] != shape[1]:
-            click.echo("Please Enter a Valid Square Matrix")
-            return "Please Enter a Valid Square Matrix"
+            click.echo("Please Enter a Valid Square Matrix\n")
+            return main()
     except IndexError:
-        click.echo("Please Enter a Valid 2D List")
-        return "Please Enter a Valid 2D List"
+        click.echo("Please Enter a Valid 2D List\n")
+        return main()
 
     if not matrix:
         examples()
