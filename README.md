@@ -3,7 +3,7 @@
 
 ## How to install the package
 ```
-pip install matrix-rotation==0.2
+pip install matrix-rotation
 ```
 
 ## How to use
