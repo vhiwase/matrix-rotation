@@ -32,7 +32,7 @@ Clockwise Rotated Matrix with Degree = 2:
 [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 ```
 
-# Examples:
+## Examples:
 
 ### Calling python package
 ```matrix-rotation``` can be directly called using ```python3``` to work with commond line interface.
