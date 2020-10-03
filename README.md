@@ -1,8 +1,10 @@
 # Rotate any square matrix clockwise and anticlockwise in any degree.
+matrix-rotation is a simple package for rotating elements of any square matrix in clockwise and anticlockwise direction. This rotation can be performed with any degree or step size. It is most suitable for small size matrix. 
 
 ## How to use
+Following are some of the sample examples to show the use of ```matrix_rotation``` package. This package has a function named ```rotate_matrix``` which essentially takes input 2 dimensional square matrix as a first argument, degree as a second argument to determine the step size and default clockwise rotation as the final argument. ```print_rotate_matrix``` function is just the extension of ```rotate_matrix``` function which print the original matrix and rotated matrix on the console. Let's take a look.
 ```
->>> from matrix_rotation import rotate_matrix, print_rotate_matrix
+>> from matrix_rotation import rotate_matrix, print_rotate_matrix
 
 >>> matrix = [['a', 'b', 'c'],\
               ['h', 'i', 'd'],\
@@ -31,6 +33,12 @@ Clockwise Rotated Matrix with Degree = 2:
 ```
 
 # Examples:
+
+### Calling python package
+```matrix-rotation``` can be directly called using ```python3``` to work with commond line interface.
+```
+python3 matrix-rotation
+```
 
 ### Calling from Command Line Interface (CLI)
 ```
