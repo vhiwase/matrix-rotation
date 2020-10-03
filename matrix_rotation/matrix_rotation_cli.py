@@ -4,6 +4,7 @@ import click
 
 __all__ = ["rotate_matrix", "print_rotate_matrix"]
 
+
 def examples():
     """
     Run some exmaples
@@ -14,18 +15,18 @@ def examples():
 
     """
     matrix = [['a', 'b'],
-              ['d', 'c']]    
+              ['d', 'c']]
     rotated_matrix = print_rotate_matrix(matrix, degree=1, clockwise=True)
-    
+
     matrix = [['a', 'b'],
-              ['d', 'c']]    
+              ['d', 'c']]
     rotated_matrix = print_rotate_matrix(matrix, degree=1, clockwise=False)
 
     matrix = [['a', 'b', 'c'],
               ['h', 'i', 'd'],
               ['g', 'f', 'e']]
     rotated_matrix = print_rotate_matrix(matrix, degree=1, clockwise=False)
-    
+
     matrix = [['a', 'b', 'c', 'd'],
               ['l', 'm', 'n', 'e'],
               ['k', 'p', 'o', 'f'],
@@ -58,11 +59,19 @@ def examples():
 
 
 @click.command()
-@click.option('--matrix', '-M',  prompt='Type "None" to display default examples.\nEnter your matrix', help='Use to show default examples of matrix rotation. Otherwise use the input matrix from command line.\nInput example : [["a", "b"],["d", "c"]]')
-@click.option('--degree', '-D', default=1, show_default = '1', help='Degree of rotation. Can rotate matrix in between 0 degree to 360 degree.')
-@click.option('--clockwise', '-C', default=True, show_default = 'True', type=bool, help='Use True to rotate matrix in a clockwise direction. False for rotation in anticlockwise direction.')
-@click.option('--print_matrix', '-S', default=False, show_default = 'False', type=bool, help='Use True to show the result of Original and Rotated Matrix.')
-def main(matrix=None, degree=1, clockwise=True, print_matrix=False):    
+@click.option('--matrix', '-M',  prompt='Type "None" to display default \
+examples.\nEnter your matrix', help='Use to show default examples of matrix \
+rotation. Otherwise use the input matrix from command line.\nInput \
+example : [["a", "b"],["d", "c"]]')
+@click.option('--degree', '-D', default=1, show_default='1', help='Degree of \
+rotation. Can rotate matrix in between 0 degree to 360 degree.')
+@click.option('--clockwise', '-C', default=True, show_default='True',
+              type=bool, help='Use True to rotate matrix in a clockwise direction. \
+False for rotation in anticlockwise direction.')
+@click.option('--print_matrix', '-S', default=False, show_default='False',
+              type=bool, help='Use True to show the result of Original \
+and Rotated Matrix.')
+def main(matrix=None, degree=1, clockwise=True, print_matrix=False):
     try:
         matrix = eval(matrix)
         shape = np.array(matrix).shape
@@ -70,24 +79,27 @@ def main(matrix=None, degree=1, clockwise=True, print_matrix=False):
         matrix = None
         click.echo("Please Enter a Valid list for matrix")
         return "Please Enter a Valid list for matrix"
-        
+
     try:
         if matrix and shape[0] != shape[1]:
             click.echo("Please Enter a Valid Square Matrix")
-            return "Please Enter a Valid Square Matrix"    
+            return "Please Enter a Valid Square Matrix"
     except IndexError:
         click.echo("Please Enter a Valid 2D List")
         return "Please Enter a Valid 2D List"
-        
+
     if not matrix:
         examples()
-    else:    
+    else:
         if print_matrix:
-            rotated_matrix = print_rotate_matrix(matrix, degree=degree, clockwise=clockwise)
+            rotated_matrix = print_rotate_matrix(
+                matrix, degree=degree, clockwise=clockwise)
         else:
-            rotated_matrix = rotate_matrix(matrix, degree=degree, clockwise=clockwise)
+            rotated_matrix = rotate_matrix(
+                matrix, degree=degree, clockwise=clockwise)
         click.echo(rotated_matrix)
         return rotated_matrix
 
+
 if __name__ == '__main__':
-    main()    
+    main()
