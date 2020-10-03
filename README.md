@@ -16,12 +16,12 @@ Following are some of the sample examples to show the use of ```matrix_rotation`
 [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 
 >>> rotated_matrix = print_rotate_matrix(matrix, degree=2, clockwise=True)
-<BLANKLINE>
+
 Original Matrix:
 [['a', 'b', 'c'],
 ['h', 'i', 'd'],
 ['g', 'f', 'e']]
-<BLANKLINE>
+
 Clockwise Rotated Matrix with Degree = 2:
 [['g', 'h', 'a'],
 ['f', 'i', 'b'],
@@ -75,7 +75,7 @@ Type "None" to display default examples.
 Enter your matrix: <None>
 ```
 
-Use the follwing command to run sample exmaples it in the module:
+Use the following command to run sample examples it in the module:
 ```
 >>> from matrix_rotation import examples
 >>> examples()
