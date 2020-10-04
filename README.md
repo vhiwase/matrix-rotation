@@ -83,13 +83,13 @@ matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2
 Here default arguments will be ```print_matrix=False```
 ```
 matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2 --clockwise False
-matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2
+matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2 -C False
 ```
 
 #### Calling with --matrix or -M, degree or -D, clockwise or -C and --print_matrix or -S
 ```
 matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2 --clockwise False --print_matrix True
-matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2 -S True
+matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2 -C False -S True
 ```
 
 ### Calling from Command Line Interface (CLI) using ```python3```
