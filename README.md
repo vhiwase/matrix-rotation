@@ -91,31 +91,9 @@ matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2 --clockwise False
 matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2 -S True
 ```
 
-### Calling from Command Line Interface (CLI) using ```python3```
-You can also run the same using ```python3``` as well:
-```
-python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]"
-
-python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 
-python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" -D 1 
-
-python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False
-python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" -D 1 -C False
-
-python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False --print_matrix True
-python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" -D 1 -C False -S True
-
-```
-
 ### Calling for doctest:
 ```
 python3 -m doctest matrix_rotation/matrix_rotation.py
-```
-
-### Calling for unittest
-```
-python3 -m unittest discover
-python3 -m pytest 
 ```
 
 ### Calling for sample examples
@@ -231,27 +209,6 @@ Anitclockwise Rotated Matrix with Degree = 4:
 ---------------------------------------------
 
 ```
-# Application on image
-Following are the sample application examples of the matrix rotation.
-2D red channel of the 3D colored image is use to demonstrate this application.
-Image is rotated clockwise and anticlockwise in 15 degree, 30 degree, 45 degree, 60 degree and 90 degree respectively.
-
-<p align="center">
-  <img src="matrix_rotation/images/Kills_skull_64x64.png" width="64" title="Kill Skull Image">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_15_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_30_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_45_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_60_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_90_degree_clockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_15_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_30_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_45_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_60_degree_anticlockwise.png" width="64" alt="accessibility text">
-  <img src="matrix_rotation/images/Kill_skull_64x64_red_channel_rotated_90_degree_anticlockwise.png" width="64" alt="accessibility text">
-</p>
 
 # Licence
 MIT License
-
-Note: If you find this project useful, please include reference link in your work.
