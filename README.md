@@ -104,8 +104,13 @@ python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]
 
 python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False --print_matrix True
 python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" -D 1 -C False -S True
-
 ```
+
+### tox automation
+tox is a command line driven CI frontend and development task automation tool. At its core tox provides a convenient way to run arbitrary commands in isolated environments to serve as a single entry point for build, test and release activities.
+
+To create tox supported environment use the following command:
+```sudo sh requirements_interpreter.sh```
 
 ### Calling for doctest:
 ```
