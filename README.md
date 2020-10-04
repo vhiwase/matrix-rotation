@@ -65,8 +65,8 @@ Options:
 ```matrix_rotation``` can be directly called without using ```python3``` to work with commond line interface.
 
 #### Calling with --matrix or -M
-```
 Here default arguments will be ```degree=1, clockwise=True, print_matrix=False```
+```
 matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]"
 matrix_rotation -M "[['a', 'b'], ['d', 'c']]"
 ```
