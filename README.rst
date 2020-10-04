@@ -1,12 +1,12 @@
 # Rotate any square matrix clockwise and anticlockwise in any degree.
-```matrix-rotation``` is a simple package for rotating elements of any square matrix in clockwise and anticlockwise direction. This rotation can be performed with any degree or step size. It is most suitable for small size matrix. 
+```matrix-rotation``` is a simple package for rotating elements of any square matrix in clockwise and anticlockwise direction. This rotation can be performed with any degree of angle or step size. This version is most suitable for small size matrix. 
 
 ## How to install the package
 ```
 pip install matrix-rotation
 ```
 
-## How to use in python code
+## How to use it in python code
 Following are some of the sample examples to show the use of ```matrix_rotation``` package. This package has a function named ```rotate_matrix``` which essentially takes input 2 dimensional square ```matrix``` as a first argument, ```degree``` as a second argument to determine the step size and default ```clockwise``` rotation as the final argument. ```print_rotate_matrix``` function is just the extension of ```rotate_matrix``` function which print the original matrix and rotated matrix on the console. Let's take a look.
 ```
 >> from matrix_rotation import rotate_matrix, print_rotate_matrix
@@ -62,8 +62,8 @@ Options:
 ```
 
 ### Calling for python package
-```matrix_rotation``` can be directly called without using ```python3``` to work with commond line interface.
-```
+```matrix_rotation``` can be directly called without using ```python3``` to work with command line interface.
+
 #### Calling with --matrix or -M
 Here default arguments will be ```degree=1, clockwise=True, print_matrix=False```
 ```
@@ -85,7 +85,7 @@ matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2 --clockwise False
 matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2
 ```
 
-#### Calling with --matrix or -M, degree or -D and clockwise or -C 
+#### Calling with --matrix or -M, degree or -D, clockwise or -C and --print_matrix or -S
 ```
 matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2 --clockwise False --print_matrix True
 matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2 -S True
@@ -97,7 +97,7 @@ python3 -m doctest matrix_rotation/matrix_rotation.py
 ```
 
 ### Calling for sample examples
-To run sample examples, use the follwing command to run from command line interface:
+Use the following command to run sample examples from command line interface:
 ```
 matrix_rotation
 ```
@@ -107,7 +107,7 @@ Type "None" to display default examples.
 Enter your matrix: <None>
 ```
 
-Use the following command to run sample examples it in the python code:
+Use the following command to run sample examples in the python code:
 ```
 >>> from matrix_rotation import examples
 >>> examples()
@@ -207,6 +207,8 @@ Anitclockwise Rotated Matrix with Degree = 4:
  ['24', '25', '40', '39', '38', '37', '16'],
  ['23', '22', '21', '20', '19', '18', '17']]
 ---------------------------------------------
+
+```
 
 # Licence
 MIT License
