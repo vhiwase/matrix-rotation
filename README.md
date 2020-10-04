@@ -42,7 +42,7 @@ Clockwise Rotated Matrix with Degree = 2:
 ### Calling python package
 ```matrix-rotation``` can be directly called using ```python3``` to work with commond line interface.
 ```
-python3 matrix-rotation --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False --print_matrix True
+python3 matrix-rotation
 ```
 
 ### Calling from Command Line Interface (CLI)
