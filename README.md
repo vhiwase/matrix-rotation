@@ -5,7 +5,8 @@
 ```
 pip install matrix-rotation
 ```
-Visit [matrix-rotation](https://pypi.org/project/matrix-rotation/ "matrix-rotation")
+Visit [matrix-rotation](https://pypi.org/project/matrix-rotation/ "matrix-rotation") [GitHub Link](https://github.com/vhiwase/matrix-rotation/ "Github")
+
 
 ## How to use it in python code
 Following are some of the sample examples to show the use of ```matrix_rotation``` package. This package has a function named ```rotate_matrix``` which essentially takes input 2 dimensional square ```matrix``` as a first argument, ```degree``` as a second argument to determine the step size and default ```clockwise``` rotation as the final argument. ```print_rotate_matrix``` function is just the extension of ```rotate_matrix``` function which print the original matrix and rotated matrix on the console. Let's take a look.
