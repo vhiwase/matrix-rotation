@@ -7,10 +7,10 @@ with open('README.rst') as readme_file:
     readme = readme_file.read()
 
 requirements = [
-    'opencv-python>=4.4.0.44',
-    'numpy>=1.19.2',
-    'pathlib>=1.0.1',
-    'click>=7.1.2'
+    'click>=7.1.2',
+    'numpy>=1.18.5',
+    'opencv-python',
+    'pathlib>=1.0.1'
 ]
 
 test_requirements = [
@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='matrix_rotation',
-    version='0.2',
+    version='0.2.1',
     description="Rotate any square matrix clockwise and anticlockwise in any degree.",
     long_description=readme,
     long_description_content_type='text/markdown',
@@ -46,9 +46,12 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    python_requires='>=3.5',
+    python_requires='>=3.6',
     test_suite='tests',
     tests_require=test_requirements
 )

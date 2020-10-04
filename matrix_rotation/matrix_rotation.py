@@ -78,7 +78,7 @@ def rotate_matrix(matrix: list, degree: int, clockwise: bool = True) -> list:
         rotated_matrix.append(inner_list.copy())
 
     all_matrix_pos = set([tuple(item) for item in list(orignal_matrix_pos)])
-    
+
     # Rotate original matrix
     rotated_matrix = _rotate(rotated_matrix=rotated_matrix,
                              matrix_pos=orignal_matrix_pos,
@@ -192,8 +192,8 @@ def _rotate(rotated_matrix: list, matrix_pos: list, degree: int,
         recursion_matrix_pos = []
         for r, c in zip(rows, columns):
             recursion_matrix_pos.append((r, c))
-            
-        # Recursive call 
+
+        # Recursive call
         return _rotate(rotated_matrix,
                        recursion_matrix_pos,
                        degree,
