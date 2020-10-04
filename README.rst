@@ -1,4 +1,4 @@
-# Rotate any square matrix clockwise and anticlockwise in any degree.
+# Rotate any square matrix clockwise and anticlockwise in any degree of angle.
 ```matrix-rotation``` is a simple package for rotating elements of any square matrix in clockwise and anticlockwise direction. This rotation can be performed with any degree of angle or step size. This version is most suitable for small size matrix. 
 
 ## How to install the package
