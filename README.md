@@ -119,7 +119,7 @@ python3 -m pytest
 ```
 
 ### Calling for sample examples
-To run sample examples, use the follwing command to run from command line interface:
+Use the following command to run sample examples from command line interface:
 ```
 matrix_rotation
 ```
@@ -129,7 +129,7 @@ Type "None" to display default examples.
 Enter your matrix: <None>
 ```
 
-Use the following command to run sample examples it in the python code:
+Use the following command to run sample examples in the python code:
 ```
 >>> from matrix_rotation import examples
 >>> examples()
