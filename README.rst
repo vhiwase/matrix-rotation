@@ -56,6 +56,6 @@ Options:
   --help                      Show this message and exit.
 ```
 For more information please visit [GitHub](https://github.com/vhiwase/matrix-rotation/ "Github Link")
-```
+
 # License
 MIT License
