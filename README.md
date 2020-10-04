@@ -6,7 +6,7 @@
 pip install matrix-rotation
 ```
 
-## How to use
+## How to use in python code
 Following are some of the sample examples to show the use of ```matrix_rotation``` package. This package has a function named ```rotate_matrix``` which essentially takes input 2 dimensional square ```matrix``` as a first argument, ```degree``` as a second argument to determine the step size and default ```clockwise``` rotation as the final argument. ```print_rotate_matrix``` function is just the extension of ```rotate_matrix``` function which print the original matrix and rotated matrix on the console. Let's take a look.
 ```
 >> from matrix_rotation import rotate_matrix, print_rotate_matrix
@@ -37,23 +37,73 @@ Clockwise Rotated Matrix with Degree = 2:
 [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 ```
 
-## Examples:
+## How to use from command line interface
 
-### Calling python package
-```matrix-rotation``` can be directly called using ```python3``` to work with commond line interface.
+### ```matrix_rotation --help```
 ```
-python3 matrix-rotation
+Usage: matrix_rotation [OPTIONS]
+
+Options:
+  -M, --matrix TEXT           Use to show default examples of matrix rotation.
+                              Otherwise use the input matrix from command
+                              line. Input example : [["a", "b"],["d", "c"]]
+
+  -D, --degree INTEGER        Degree of rotation. Can rotate matrix in between
+                              0 degree to 360 degree.  [default: (1)]
+
+  -C, --clockwise BOOLEAN     Use True to rotate matrix in a clockwise
+                              direction. False for rotation in anticlockwise
+                              direction.  [default: (True)]
+
+  -S, --print_matrix BOOLEAN  Use True to show the result of Original and
+                              Rotated Matrix.  [default: (False)]
+
+  --help                      Show this message and exit.
 ```
 
-### Calling from Command Line Interface (CLI)
+### Calling for python package
+```matrix_rotation``` can be directly called without using ```python3``` to work with commond line interface.
+```
+#### Calling with --matrix or -M
+Here default arguments will be ```degree=1, clockwise=True, print_matrix=False```
+```
+matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]"
+matrix_rotation -M "[['a', 'b'], ['d', 'c']]"
+```
+
+#### Calling with --matrix or -M and degree or -D
+Here default arguments will be ```clockwise=True, print_matrix=False```
+```
+matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2
+matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2
+```
+
+#### Calling with --matrix or -M, degree or -D and clockwise or -C 
+Here default arguments will be ```print_matrix=False```
+```
+matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2 --clockwise False
+matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2
+```
+
+#### Calling with --matrix or -M, degree or -D and clockwise or -C 
+```
+matrix_rotation --matrix "[['a', 'b'], ['d', 'c']]" --degree 2 --clockwise False --print_matrix True
+matrix_rotation -M "[['a', 'b'], ['d', 'c']]" -D 2 -S True
+```
+
+### Calling from Command Line Interface (CLI) using ```python3```
+You can also run the same using ```python3``` as follows:
 ```
 python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]"
 
 python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 
+python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" -D 1 
 
 python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False
+python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" -D 1 -C False
 
 python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" --degree 1 --clockwise False --print_matrix True
+python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]" -D 1 -C False -S True
 
 ```
 
@@ -71,16 +121,15 @@ python3 -m pytest
 ### Calling for sample examples
 To run sample examples, use the follwing command to run from command line interface:
 ```
-python3 matrix_rotation/matrix_rotation_cli.py
+matrix_rotation
 ```
-
 This command will prompt a message in the console. If you want to run sample examples just type ```None``` in the console.
 ```
 Type "None" to display default examples.
 Enter your matrix: <None>
 ```
 
-Use the following command to run sample examples it in the module:
+Use the following command to run sample examples it in the python code:
 ```
 >>> from matrix_rotation import examples
 >>> examples()

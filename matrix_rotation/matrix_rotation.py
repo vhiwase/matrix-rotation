@@ -35,7 +35,7 @@ def rotate_matrix(matrix: list, degree: int, clockwise: bool = True) -> list:
     [['l', 'a', 'b', 'c'], ['k', 'p', 'm', 'd'], ['j', 'o', 'n', 'e'], ['i', 'h', 'g', 'f']]
     """
 
-    # Getting matrix position of and its value
+    # Getting matrix's positional index and its value
     pos_dict = {}
     for row_index, row in enumerate(matrix):
         for col_index, col in enumerate(row):
@@ -51,7 +51,7 @@ def rotate_matrix(matrix: list, degree: int, clockwise: bool = True) -> list:
     else:
         middle = None
 
-    # Creating pattern for first rows
+    # Creating pattern for rows
     pattern = []
     pattern.extend([first] * len(matrix))
     if middle is not None:
@@ -64,20 +64,22 @@ def rotate_matrix(matrix: list, degree: int, clockwise: bool = True) -> list:
             pattern.extend([m])
 
     rows = pattern
-    # creating pattern for columns
+    # Creating pattern for columns
     columns = pattern[len(matrix)-1:]+pattern[:len(matrix)-1]
 
-    # Creatring matrix position from patterns
+    # Creating original matrix's positional index from patterns
     orignal_matrix_pos = []
     for r, c in zip(rows, columns):
         orignal_matrix_pos.append((r, c))
 
-    # creating rotated matrix
+    # Creating copy of original matrix
     rotated_matrix = []
     for inner_list in matrix:
         rotated_matrix.append(inner_list.copy())
 
     all_matrix_pos = set([tuple(item) for item in list(orignal_matrix_pos)])
+    
+    # Rotate original matrix
     rotated_matrix = _rotate(rotated_matrix=rotated_matrix,
                              matrix_pos=orignal_matrix_pos,
                              degree=degree,
@@ -121,7 +123,7 @@ def _rotate(rotated_matrix: list, matrix_pos: list, degree: int,
         Rotated matrix with one layer of rotation at a time.
 
     """
-    # creating matrix position for n degree rotation
+    # Creating matrix position for n degree rotation
     if clockwise:
         rotated_matrix_pos = list(
             matrix_pos[degree:]) + list(matrix_pos[:degree])
@@ -129,7 +131,7 @@ def _rotate(rotated_matrix: list, matrix_pos: list, degree: int,
         rotated_matrix_pos = list(
             matrix_pos[-degree:]) + list(matrix_pos[:-degree])
 
-    # creating rotated dictionary with positions and values
+    # Creating rotated dictionary with positional index and value
     rotated_pos_dict = {}
     for om_pos, rm_pos in zip(matrix_pos, rotated_matrix_pos):
         rotated_pos_dict[tuple(rm_pos)] = pos_dict[tuple(om_pos)]
@@ -168,7 +170,7 @@ def _rotate(rotated_matrix: list, matrix_pos: list, degree: int,
             middle = None
         size = size - 2
 
-        # Creating pattern for first rows
+        # Creating pattern for rows
         pattern = []
         pattern.extend([first] * size)
 
@@ -186,10 +188,12 @@ def _rotate(rotated_matrix: list, matrix_pos: list, degree: int,
         # creating pattern for columns
         columns = pattern[size-1:]+pattern[:size-1]
 
-        # Creatring matrix position from patterns
+        # Creating original matrix's positional index from patterns
         recursion_matrix_pos = []
         for r, c in zip(rows, columns):
             recursion_matrix_pos.append((r, c))
+            
+        # Recursive call 
         return _rotate(rotated_matrix,
                        recursion_matrix_pos,
                        degree,
@@ -220,7 +224,7 @@ def pprint(matrix: list) -> str:
 
 def printing(matrix: list, rotated_matrix: list, degree: int, clockwise: bool):
     """
-    Printing Original Matrix and Clockwise Rotated Matrix with the Degree.
+    Printing Original Matrix and Rotated Matrix with the Degree of rotation
 
     Parameters
     ----------
