@@ -209,6 +209,5 @@ Anitclockwise Rotated Matrix with Degree = 4:
 ---------------------------------------------
 
 ```
-
 # License
 MIT License
