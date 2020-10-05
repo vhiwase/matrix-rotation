@@ -32,9 +32,9 @@ Clockwise Rotated Matrix with Degree = 2:
 [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 ```
 
-## Use from command line interface
+## Use in command line interface (CLI)
 
-### ```matrix_rotation --help```
+```matrix_rotation --help```
 ```
 Usage: matrix_rotation [OPTIONS]
 

@@ -20,8 +20,8 @@ test_requirements = [
 
 setup(
     name='matrix_rotation',
-    version='0.2.1.2',
-    description="Rotate any square matrix clockwise and anticlockwise in any degree.",
+    version='0.2.2',
+    description="Rotate any square matrix clockwise and anticlockwise in any degree of angle.",
     long_description=readme,
     long_description_content_type='text/markdown',
     author="Vaibhav Hiwase",
@@ -50,6 +50,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     python_requires='>=3.6',
     test_suite='tests',

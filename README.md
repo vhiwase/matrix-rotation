@@ -1,13 +1,13 @@
 # Rotate any square matrix clockwise and anticlockwise in any degree of angle.
 ```matrix-rotation``` is a simple package for rotating elements of any square matrix in clockwise and anticlockwise direction. This rotation can be performed with any degree of angle or step size. This version is most suitable for small size matrix. 
 
-## How to install the package
+## How to install this package
 ```
 pip install matrix-rotation
 ```
 Visit [matrix-rotation](https://pypi.org/project/matrix-rotation/ "matrix-rotation pypi package") 
 
-## How to use it in python code
+## How to use this package in python code
 Following are some of the sample examples to show the use of ```matrix_rotation``` package. This package has a function named ```rotate_matrix``` which essentially takes input 2 dimensional square ```matrix``` as a first argument, ```degree``` as a second argument to determine the step size and default ```clockwise``` rotation as the final argument. ```print_rotate_matrix``` function is just the extension of ```rotate_matrix``` function which print the original matrix and rotated matrix on the console. Let's take a look.
 ```
 >> from matrix_rotation import rotate_matrix, print_rotate_matrix
@@ -38,9 +38,9 @@ Clockwise Rotated Matrix with Degree = 2:
 [['g', 'h', 'a'], ['f', 'i', 'b'], ['e', 'd', 'c']]
 ```
 
-## How to use from command line interface
+## How to use this package in command line interface (CLI)
 
-### ```matrix_rotation --help```
+```matrix_rotation --help```
 ```
 Usage: matrix_rotation [OPTIONS]
 
@@ -63,7 +63,7 @@ Options:
 ```
 
 ### Calling for python package
-```matrix_rotation``` can be directly called without using ```python3``` to work with command line interface.
+```matrix_rotation``` can be directly called without using ```python3``` to work with command line interface (CLI).
 
 #### Calling with --matrix or -M
 Here default arguments will be ```degree=1, clockwise=True, print_matrix=False```
@@ -110,9 +110,9 @@ python3 matrix_rotation/matrix_rotation_cli.py --matrix "[['a', 'b'],['d', 'c']]
 ### Calling for tox automation
 tox is a command line driven CI frontend and development task automation tool. At its core tox provides a convenient way to run arbitrary commands in isolated environments to serve as a single entry point for build, test and release activities.
 
-To create tox supported environment use the following command:
+To create and run tox supported environment use the following command:
 ```
-sudo sh requirements_interpreter.sh
+sudo sh requirements_tox.sh
 tox
 ```
 
